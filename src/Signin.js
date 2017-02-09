@@ -4,7 +4,10 @@ import './App.css';
 class Signin extends Component {
   constructor () {
     super();
-    this.state = {account: ''};
+    this.state = {account: null,
+      apikey: null,
+      isLocked: true
+    };
   }
 
   render () {
@@ -16,13 +19,13 @@ class Signin extends Component {
     );
   }
 
-  onSubmit = (e) => {
-    e.preventDefault();
+  onSubmit = (ev) => {
+    ev.preventDefault();
     this.props.signingIn(this.state);
   }
 
-  onChange = (e) => {
-    this.setState({account: e.target.value});
+  onChange = (ev) => {
+    this.setState({account: ev.target.value});
   }
 }
 
